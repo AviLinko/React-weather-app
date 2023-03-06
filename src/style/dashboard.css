@@ -1,0 +1,28 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .section {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .current-weather {
+    background-color: #e6f2ff;
+  }
+  
+  .weather-by-hours {
+    background-color: #d9edf7;
+  }
+  
+  .week-weather {
+    background-color: #f7dc6f;
+  }
+  

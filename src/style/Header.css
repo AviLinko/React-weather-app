@@ -1,0 +1,54 @@
+.header {
+    background-image: linear-gradient(to bottom, #466681, #a5b3c0);
+    transition: background-image 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 1rem;
+    color: black; /* add the color property to change the text color to black */
+  }
+  
+  /* Styles for the left button */
+  .header__left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  /* Styles for the center search input and button */
+  .header__center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .header__search {
+    background-color: transparent;
+    border: none;
+    border: 1px solid black; /* change the border color to black */
+    color: black; /* change the text color to black */
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    width: 100%;
+  }
+  
+  .header__btn {
+    background-color: #c7d6d5;
+    color: black; /* change the text color to black */
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  /* Styles for the right button */
+  .header__right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
