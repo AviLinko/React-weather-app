@@ -6,38 +6,26 @@
     align-items: center;
     height: 4rem;
     padding: 0 1rem;
-    color: black; /* add the color property to change the text color to black */
+    color: black; 
   }
   
-  /* Styles for the left button */
+  
   .header__left {
     flex: 1;
     display: flex;
     justify-content: flex-start;
   }
   
-  /* Styles for the center search input and button */
   .header__center {
     flex: 2;
-    display: flex;
     justify-content: center;
-    
+    width: 80%;
   }
   
-  .header__search {
-    background-color: transparent;
-    border: none;
-    border: 1px solid black; /* change the border color to black */
-    color: black; /* change the text color to black */
-    font-size: 1rem;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-    width: 100%;
-  }
   
   .header__btn {
-    background-color: #c7d6d5;
-    color: black; /* change the text color to black */
+    background-color: white;
+    color: black; 
     border: none;
     border-radius: 0.25rem;
     font-size: 1rem;
@@ -45,7 +33,6 @@
     cursor: pointer;
   }
   
-  /* Styles for the right button */
   .header__right {
     flex: 1;
     display: flex;

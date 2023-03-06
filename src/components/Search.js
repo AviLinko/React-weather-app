@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import {AsyncPaginate} from "react-select-async-paginate";
-import {CITIES_URL, citiesApi} from '../api'; 
+import {CITIES_URL, citiesApi} from './Api' 
+
 
 const Search = ({onSearchChange}) => {
+    
     const [search, setSearch] = useState (null);
 
     const handleChange = (searchData) =>{
@@ -26,7 +28,6 @@ const Search = ({onSearchChange}) => {
     };
     return (
         <AsyncPaginate
-            placeholder='search by city'
             debounceTimeout={600}
             value={search}
             onChange={handleChange}
