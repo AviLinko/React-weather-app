@@ -32,11 +32,8 @@ function Header() {
         <button className="header__btn header__btn--menu"><GrMenu/></button>
       </div>
       <div className="header__center">
-        <Search 
-        onSearchChange={handleSearchChange}
-        style={{ backgroundColor: "#c7d6d5" }}
-        />
-        { currWeather &&<CurrentWeather data = {currWeather} />}
+        <Search onSearchChange={handleSearchChange}/>
+        <Dashboard currWeather={currWeather} />
       </div>
       <div className="header__right">
         <button className="header__btn header__btn--location"><GoLocation/></button>

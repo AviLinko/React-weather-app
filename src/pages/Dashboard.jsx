@@ -1,11 +1,13 @@
 import React from "react";
 import '../style/dashboard.css'
+import CurrentWeather from '../components/CurrentWeather';
 
-function Dashboard() {
+function Dashboard(props) {
+  const { currWeather } = props;
   return (
     <div className="dashboard" style={{ backgroundColor: "#a5b3c0" }}>
       <div className="section current-weather">
-        <h2>Current Weather</h2>
+      {currWeather && <CurrentWeather data={currWeather} />}
         
       </div>
       <div className="section weather-by-hours">
@@ -14,7 +16,7 @@ function Dashboard() {
       </div>
       <div className="section week-weather">
         <h2>Week Weather</h2>
-       
+        
       </div>
     </div>
   );
