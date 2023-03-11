@@ -33,7 +33,7 @@ function Header() {
       </div>
       <div className="header__center">
         <Search onSearchChange={handleSearchChange}/>
-        <Dashboard currWeather={currWeather} />
+        
       </div>
       <div className="header__right">
         <button className="header__btn header__btn--location"><GoLocation/></button>

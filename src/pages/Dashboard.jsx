@@ -7,7 +7,7 @@ function Dashboard(props) {
   return (
     <div className="dashboard" style={{ backgroundColor: "#a5b3c0" }}>
       <div className="section current-weather">
-      {currWeather && <CurrentWeather data={currWeather} />}
+      {/* {currWeather && <CurrentWeather data={currWeather} />} */}
         
       </div>
       <div className="section weather-by-hours">
