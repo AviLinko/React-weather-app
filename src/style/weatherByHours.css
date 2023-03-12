@@ -1,0 +1,32 @@
+.forecast-container {
+    display: flex;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    margin: 0 -8px;
+    align-items: center;
+    
+  }
+  
+  .hour-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+    flex: 0 0 auto;
+    margin: 0 8px;
+    min-width: 80px;
+    text-align: center;
+    padding: 10px;
+    
+  }
+  
+  .hour {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .temperature {
+    font-size: 14px;
+    color: #555555;
+  }
+  

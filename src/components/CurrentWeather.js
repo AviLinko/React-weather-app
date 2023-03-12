@@ -1,7 +1,9 @@
-
+import '../style/currentWeather.css'
 const CurrWeather = ({data}) => {
+  const iconCode = data.weather[0].icon;
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
     return (
-      <div className="weather">
+      <div className="weather" style= {{backgroundImage: `url(/images/background.jpg)`, margin:10} }>
           <div className="top">
             <div>
                 <p className="city">{data.city}</p>
@@ -10,10 +12,10 @@ const CurrWeather = ({data}) => {
             <div>
                 <p className="temp">{Math.round(data.main.temp)}℃</p>
             </div>
-            <img alt="weather" className="weather-img" src={`icons/${data.weather[0].icon}.png`} />
+            <img alt="weather" className="weather-img" src={iconUrl} />
           </div>
           <div className="bottom">
-            <p>{Math.round(data.main.feels_like)}℃</p>
+            <p>feels like: {Math.round(data.main.feels_like)}℃</p>
           </div>
       </div>  
     );

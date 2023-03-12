@@ -11,7 +11,7 @@
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
   }
   
   .current-weather {
@@ -20,6 +20,10 @@
   
   .weather-by-hours {
     background-color: #d9edf7;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    align-items: center;
+    justify-content: center;
   }
   
   .week-weather {
