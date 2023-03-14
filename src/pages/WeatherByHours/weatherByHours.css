@@ -1,9 +1,8 @@
 .forecast-container {
     display: flex;
-    grid-auto-flow: column;
-    grid-auto-columns: 25%;
+    grid-auto-flow: row;
     margin: 0 -8px;
-    align-items: center;
+    padding-top: 25px;
     
   }
   

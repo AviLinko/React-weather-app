@@ -1,11 +1,10 @@
 import { React, useContext } from "react";
-import '../style/Header.css';
-import CurrWeather from '../components/CurrentWeather';
-import Search from '../components/Search'
+import './Header.css';
+import Search from '../Search'
 import { GoLocation } from 'react-icons/go';
 import { GrMenu } from 'react-icons/gr';
-import {CURR_WEATHER_URL,CURR_WEATHER_KEY} from '../components/Api';
-import WeatherContext from '../components/WeatherContext';
+import {CURR_WEATHER_URL,CURR_WEATHER_KEY} from '../../components/Api';
+import WeatherContext from '../../components/WeatherContext';
 
 function Header() {
   

@@ -1,6 +1,6 @@
-import { useState} from "react";
+import { React, useState} from "react";
 import {AsyncPaginate} from "react-select-async-paginate";
-import {CITIES_URL, citiesApi} from './Api' 
+import {CITIES_URL, citiesApi} from '../components/Api' 
 
 
 const Search = ({onSearchChange}) => {
@@ -16,7 +16,7 @@ const Search = ({onSearchChange}) => {
 		.then(response => response.json())
 		.then(response => {
             return {
-                options:response.data.map((city)=>{
+                options:response.data.map((city) => {
                     return{
                         value: `${city.latitude} ${city.longitude}`,
                         label: `${city.name}, ${city.countryCode}`,
