@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  background-size:cover;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -10,7 +10,6 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 4rem;
-  
 }
 
 .bottom {
@@ -32,8 +31,6 @@
   margin-right: 1rem;
 }
 
-
 .week-weather {
-  max-width:max-content;
-  
+  max-width: max-content;
 }

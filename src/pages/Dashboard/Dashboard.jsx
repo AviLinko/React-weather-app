@@ -1,46 +1,91 @@
-import React, { useState, useEffect } from "react";
-import './dashboard.css'
-import CurrentWeather from '../currentWeater/CurrentWeather'
-import WeatherByHours from "../WeatherByHours/WeatherByHours";
-import WeekWeather from "../WeekWeather/WeekWeather";
-import { useContext } from 'react';
-import WeatherContext from '../../components/WeatherContext';
-import dayImg from '../../imgs/day-sky.png'
-import nightImg from '../../imgs/night-sky.png'
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+import ExcelExporter from '../ExcelExporter';
 
+const ShiftScheduler = () => {
+  const [shifts, setShifts] = useState({
+    Monday: { morning: '', noon: '', night: '' },
+    Tuesday: { morning: '', noon: '', night: '' },
+    Wednesday: { morning: '', noon: '', night: '' },
+    Thursday: { morning: '', noon: '', night: '' },
+    Friday: { morning: '', noon: '', night: '' },
+    Saturday: { morning: '', noon: '', night: '' },
+    Sunday: { morning: '', noon: '', night: '' }
+  });
 
-function Dashboard () {
-  const { currWeather, forecast } = useContext(WeatherContext);
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const handleShiftSelect = (day, period, shift) => {
+    setShifts({
+      ...shifts,
+      [day]: {
+        ...shifts[day],
+        [period]: shift
+      }
+    });
+  };
 
-  useEffect(() => {
-    const date = new Date();
-    const hour = date.getHours();
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('Shifts:', shifts);
+    // Call the function to export the shifts data to Excel
+    exportToExcel();
+  };
 
-    if (hour >= 6 && hour < 18) {
-      setBackgroundImage(dayImg);
-    } else {
-      setBackgroundImage(nightImg);
-    }
-  }, []);
-  return (
+  const exportToExcel = () => {
+    // Create a new workbook and add a worksheet
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(shifts);
+
+    // Add the worksheet to the workbook
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Shifts');
+
+    // Export the workbook to a file
+    XLSX.writeFile(workbook, 'shifts.xlsx');
     
-    <div className="dashboard" style={{ backgroundImage: `url(${backgroundImage})` } } >
-      <div className="top" >
-        <div className="section current-weather">
-        { currWeather && <CurrentWeather data = {currWeather} />} 
-        </div>
-        <div className="section weather-by-hours" >
-        { forecast && <WeatherByHours data = {forecast} />}
-        </div>
-      </div>
-      <div className="bottom" >
-        <div className="section week-weather" >
-        { forecast && <WeekWeather data = {forecast} />}
-        </div>
-      </div>
-    </div>
-  );
-}
+    // Render the ExcelExporter component with the shifts data
+    return <ExcelExporter shifts={shifts} />;
+  };
 
-export default Dashboard;
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Shift Scheduler</h2>
+      {Object.entries(shifts).map(([day, periods]) => (
+        <div key={day}>
+          <h3>{day}</h3>
+          <label>
+            <input
+              type="radio"
+              name={`${day}-shift`}
+              value="working"
+              checked={shifts[day].morning === 'working'}
+              onChange={() => handleShiftSelect(day, 'morning', 'working')}
+            />
+            Morning
+          </label>
+          <label>
+            <input
+              type="radio"
+              name={`${day}-shift`}
+              value="working"
+              checked={shifts[day].noon === 'working'}
+              onChange={() => handleShiftSelect(day, 'noon', 'working')}
+            />
+            Noon
+          </label>
+          <label>
+            <input
+              type="radio"
+              name={`${day}-shift`}
+              value="working"
+              checked={shifts[day].night === 'working'}
+              onChange={() => handleShiftSelect(day, 'night', 'working')}
+            />
+            Night
+          </label>
+        </div>
+      ))}
+      <button type="submit" onClick={handleSubmit}>Submit</button>
+    </form>
+  );
+};
+
+export default ShiftScheduler;
